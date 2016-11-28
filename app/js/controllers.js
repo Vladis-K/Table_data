@@ -37,7 +37,7 @@ app.controller("MainController", [ '$scope', '$http', function ($scope, $http) {
 		var f = document.getElementById('file').files[0];
 		console.log ( f )
 		var r = new FileReader();
-		r.onloadend = function(e){
+		r.onload = function(e){
 			$scope.loadedFile = e.target.result;
 			console.log ( $scope.loadedFile );
 				var textRowsNew = $scope.loadedFile.split(/\r\n|\n/gm);
