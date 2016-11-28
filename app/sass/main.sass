@@ -1,0 +1,35 @@
+$font-stack: Arial, sans-serif
+$border-outer: 1px solid #000000
+
+=border-radius($radius)
+  border-radius: $radius
+
+html
+	font-family: $font-stack
+	margin: 0
+	padding: 0
+
+body
+	font-family: $font-stack
+	padding: 0
+	margin: 80px
+
+*, button
+	+border-radius(0)
+
+table
+	border: $border-outer
+
+.table
+	tbody
+		tr
+			td 
+				text-align: center
+				color: #595959
+				height: 15px
+				margin: 0
+				padding: 5px
+
+
+
+

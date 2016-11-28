@@ -1,0 +1,77 @@
+$extra-small: 320px
+$small: 768px
+$medium: 970px
+$large: 1200px
+
+@mixin respond-to($media)
+  @if $media == handhelds
+    @media only screen and (max-width: $extra-small)
+      @content
+
+  @else if $media == small-screens
+    @media only screen and (min-width: $extra-small + 1) and (max-width: $small - 1)
+      @content
+
+  @else if $media == medium-screens
+    @media only screen and (min-width: $small) and (max-width: $large - 1)
+      @content
+
+  @else if $media == wide-screens
+    @media only screen and (min-width: $large)
+      @content
+
+//Media parameters
+
+@include respond-to(handhelds)
+  [class~=extra-small]
+    display: none
+  [class~=extra]
+    display: none
+  header
+    height: 700px
+  .section-2, .section-mid
+    height: auto
+  .cards
+    height: auto
+    margin: 10px 0
+    padding: 15px
+  .describing, .describing-right, .foot-list
+    margin-top: 0
+    margin-bottom: 20px
+
+@include respond-to(small-screens)
+  [class~=extra]
+    display: none
+  .cards
+    height: auto
+    margin: 15px 0
+    padding: 15px
+  .rectangular-info
+   position: absolute
+   margin: 10px
+  .section-mid
+    height: auto
+  .describing, .describing-right, .foot-list
+    margin-top: 0
+    margin-bottom: 20px
+
+@include respond-to(medium-screens)
+  footer
+    height: auto
+  [class~=extra]
+    display: none
+  .cards
+    height: auto
+    margin: 20px 0
+  .rectangular-info
+   position: absolute
+   margin: 10px
+  .move-left
+    top: 200px
+  .describing, .describing-right
+    margin-top: 0
+    margin-bottom: 20px
+
+@include respond-to(wide-screens)
+  .section-2
+    height: auto
