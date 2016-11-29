@@ -40,24 +40,7 @@ app.controller("MainController", [ '$scope', '$http', function ($scope, $http) {
 		r.onload = function(e){
 			$scope.loadedFile = e.target.result;
 			console.log ( $scope.loadedFile );
-				var textRowsNew = $scope.loadedFile.split(/\r\n|\n/gm);
-				var i=0;
-				var truncatedRow = textRowsNew[0].split(",");
-				var containRow = [];
-				while (i < textRowsNew.length){
-					var containRowAdd = textRowsNew[i].split(',');
-					if (truncatedRow.length ==  containRowAdd.length ){
-						var resultRowsNew = [];
-						var l = 0;
-						while (l < truncatedRow.length) {
-							resultRowsNew.push(containRowAdd[l]);
-							l++;
-						}
-						containRow.push(resultRowsNew)
-					}
-					i++;
-				}
-				return $scope.rowsNew = containRow;
+				
 		};
 		console.log ( r.readAsBinaryString(f) );
 	};
